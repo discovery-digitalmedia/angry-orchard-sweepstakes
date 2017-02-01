@@ -21,7 +21,7 @@ const REVERSE = "REVERSE";
 
 $(document).ready(function() {
   $("#about").height(aboutSection.height() + 180);
-  $("#angry-orchard").height(deltaSection.height() + 300);
+  $("#angryorchard").height(deltaSection.height() + 300);
 
 
   // setTimeout(()=>{
@@ -61,12 +61,10 @@ $(document).ready(function() {
   });
 
 
-  if (config.isMobile) {
     videoPlayButton.on("click touchstart", ()=> {
       videoPlayer[0].play();
+      videoPlayButton.css("display", "none");
     })
-
-  }
 
   let homeScene = new ScrollMagic.Scene({
     triggerElement: '#home',
@@ -75,17 +73,18 @@ $(document).ready(function() {
   homeScene.addTo(controller);
   homeScene.on("start", function(event) {
       videoPlayer[0].pause();
+
+    if (config.isMobile) {
       videoPlayButton.css("display", "none");
+    }
   });
   homeScene.on("end", function(event) {
 
     if (config.isMobile) {
       videoPlayButton.css("display", "block");
-
-      return;
     }
 
-    if(event.scrollDirection == "REVERSE") {
+    if(event.scrollDirection === REVERSE) {
 
       videoPlayer[0].pause();
       //videoPlayButton.css("display", "block");
@@ -103,7 +102,7 @@ $(document).ready(function() {
   enterScene.on('start', function(event) {
     if (config.isMobile) return;
 
-    if (event.scrollDirection == "REVERSE") {
+    if (event.scrollDirection === REVERSE) {
       videoPlayer[0].play();
     }else {
       videoPlayer[0].pause();
@@ -111,7 +110,7 @@ $(document).ready(function() {
   })
   .on("end", function(event) {
 
-    if (event.scrollDirection == "FORWARD") {
+    if (event.scrollDirection === FORWARD) {
     //  videoPlayer.css("display", 'none');
       //deltaSection.css("display", 'block');
       deltaSection.css("z-index","1");
@@ -126,7 +125,7 @@ $(document).ready(function() {
   });
 
     let deltaScene = new ScrollMagic.Scene({
-        triggerElement: '#angry-orchard',
+        triggerElement: '#angryorchard',
         triggerHook: "onLeave"
     });
     deltaScene.addTo(controller);
@@ -148,7 +147,7 @@ $(document).ready(function() {
       let winWidth = $(window).width();
 
       $("#about").height(aboutSection.height() + 180);
-      $("#angry-orchard").height(deltaSection.height() + 200);
+      $("#angryorchard").height(deltaSection.height() + 200);
 
     });
 
@@ -189,7 +188,7 @@ $(document).ready(function() {
       if (Math.abs(deltaTop - winTop) <= 150) {
         clearTimeout($.data(this, 'scrollTimer'));
         $.data(this, 'scrollTimer', setTimeout(function() {
-          nav.update("delta");
+          nav.update("angryorchard");
         }, 250));
       }
 

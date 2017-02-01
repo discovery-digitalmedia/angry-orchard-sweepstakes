@@ -517,7 +517,9 @@ overflow: hidden;
 
 @media (max-width:768px){
   /* HOME768 */
-
+    #fixed-about > .play-button {
+     display: block;
+    }
 
     #fixed-angry-orchard > .content > a img:last-child {
         width: 80%;

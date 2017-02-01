@@ -89,7 +89,9 @@ $(document).ready(function() {
       videoPlayer[0].pause();
       //videoPlayButton.css("display", "block");
     }else {
-      videoPlayer[0].play();
+      if(!config.isMobile) {
+        videoPlayer[0].play();
+      }
       //videoPlayButton.css("display", "none");
     }
   })
@@ -103,7 +105,9 @@ $(document).ready(function() {
     if (config.isMobile) return;
 
     if (event.scrollDirection === REVERSE) {
-      videoPlayer[0].play();
+      if(!config.isMobile) {
+       videoPlayer[0].play();
+      }
     }else {
       videoPlayer[0].pause();
     }
@@ -118,7 +122,7 @@ $(document).ready(function() {
     }else {
   //    videoPlayer.css("display", 'block');
       //deltaSection.css("display", 'none');
-      deltaSection.css("z-index","0");
+      deltaSection.css("z-index","-1");
 
     }
 
@@ -211,6 +215,12 @@ $(document).ready(function() {
 
 
     })
+
+  if (config.isMobile) {
+    videoPlayer.on('pause oncomplete stop', function() {
+      videoPlayButton.css("display", "block");
+    });
+  }
 
 
   if (DEVELOPMENT) {

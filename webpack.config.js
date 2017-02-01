@@ -23,7 +23,8 @@ const plugins = PRODUCTION
 	? 	[
         new webpack.optimize.UglifyJsPlugin(),
         new CopyWebpackPlugin([
-          {from:'./src/img', to:'img'}
+          {from:'./src/img', to:'img'},
+          {from:'./src/video', to:'video'}
         ]),
         new ExtractTextPlugin("app.css")
 		]

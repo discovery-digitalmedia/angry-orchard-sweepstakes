@@ -24,28 +24,36 @@ $(document).ready(function() {
   $("#angry-orchard").height(deltaSection.height() + 300);
 
 
-  setTimeout(()=>{
+  // setTimeout(()=>{
 
-    const mainHeaderHeight = $(".main-header").height();
-    const topBannerHeight = $("#page-ad-container-bannerFlexOne").height();
-    const topOffset = mainHeaderHeight + topBannerHeight + 50;
-    const topPanelHeight = $(window).height() - topOffset;
 
-    $("#home").height(topPanelHeight);
+  //   const topOffset = (config.isMobile) ? 100 : 140;
+  //   const topPanelHeight = $(window).height() - topOffset;
 
-  },1500)
+  //   console.log("----------------------------------")
+  //   console.log("topOffset ", topOffset);
+  //   console.log("----------------------------------")
+
+  //   $("#home").height(topPanelHeight);
+
+  // },500);
   let config = new Config();
   let nav = new Navigation();
   $("#nav li a").removeClass("blue").addClass("white");
   nav.update("home");
 
   let controller = new ScrollMagic.Controller();
+
   controller.scrollTo(function(posY) {
-      TweenMax.to(window, 0.5, {scrollTo: {y: posY}});
+          TweenMax.to(window, 0.5, {scrollTo: {y: posY, autoKill:false}});
   });
 
+  function scrollTo(posY) {
+          TweenMax.to(window, 0.5, {scrollTo: {y: posY, autoKill:false}});
+  }
+
   document.addEventListener('scroll-to-section', (e) => {
-    console.log("detail " + e.detail)
+   // if (e.detail === "#enter") return;
     if(config.isFirefox && e.detail.indexOf("about") !== -1){
         // TODO: there is padding in the at #home .content div need to remove
         controller.scrollTo(parseFloat($("#home").height())  + parseFloat( $("#home .content").css("padding-bottom")) + 100 );
@@ -56,6 +64,10 @@ $(document).ready(function() {
     }
   });
 
+  // $(".btn").on("click", ()=> {
+  //   console.log("xx")
+  //   scrollTo("#enter")
+  // })
 
 
   if (config.isMobile) {

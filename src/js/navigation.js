@@ -24,15 +24,16 @@ export class Navigation {
           this.open(isVisible)
         });
 
-        $(document).on("click tap", "a[href^='#']", function(e){
-            e.preventDefault();
+        $(document).on("click", "a[href^='#']", function(e){
             let id = $(this).attr("href");
-
+          
+            console.log("id ", + id);
               $("#nav li a").each(function(idx, li) {
                   $(li).removeClass("active");
               });
 
             if ($(id).length > 0) {
+                e.preventDefault();
                 let currentSection = $(this);
 
                 const event = new CustomEvent("scroll-to-section", {

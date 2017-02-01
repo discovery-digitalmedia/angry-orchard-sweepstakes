@@ -597,6 +597,9 @@ overflow: hidden;
       transition: .25s ease-in-out;
       right: -200px;
     }
+
+
+
 }
 
 
@@ -664,37 +667,11 @@ overflow: hidden;
 
 
 /* iPads (portrait and landscape) ----------- */
-/*@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-    #nav,
-    #home,
-    #about,
-    #angry-orchard,
-    #enter,
-    #fixed-angry-orchard,
-    #main {
-        width: 100%;
-        max-width: 100% ;
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    #fixed-about > .play-button {
+     display: block;
     }
-
-    #enter img {
-        width: 100%;
-
-    }
-
-    #fixed-angry-orchard {
-      min-height: 640px;
-    }
-
-
-    .empty-section {
-      min-height: 640px;
-    }
-
-    #home .content .tree {
-        display: none;
-    }
-
-}*/
+}
 
 
 @media (max-width:640px) {

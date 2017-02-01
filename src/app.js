@@ -48,10 +48,6 @@ $(document).ready(function() {
           TweenMax.to(window, 0.5, {scrollTo: {y: posY, autoKill:false}});
   });
 
-  function scrollTo(posY) {
-          TweenMax.to(window, 0.5, {scrollTo: {y: posY, autoKill:false}});
-  }
-
   document.addEventListener('scroll-to-section', (e) => {
    // if (e.detail === "#enter") return;
     if(config.isFirefox && e.detail.indexOf("about") !== -1){
@@ -63,11 +59,6 @@ $(document).ready(function() {
 
     }
   });
-
-  // $(".btn").on("click", ()=> {
-  //   console.log("xx")
-  //   scrollTo("#enter")
-  // })
 
 
   if (config.isMobile) {

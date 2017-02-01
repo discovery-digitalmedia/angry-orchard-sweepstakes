@@ -118,7 +118,7 @@ $(document).ready(function() {
     }else {
   //    videoPlayer.css("display", 'block');
       //deltaSection.css("display", 'none');
-      deltaSection.css("z-index","-1");
+      deltaSection.css("z-index","0");
 
     }
 

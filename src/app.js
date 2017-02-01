@@ -150,20 +150,11 @@ $(document).ready(function() {
       $("#about").height(aboutSection.height() + 180);
       $("#angry-orchard").height(deltaSection.height() + 200);
 
-      if(!config.isMobile && winWidth > 480) {
-      //  nav.open(true);
-      }else {
-      //  nav.open(false);
-
-      }
     });
 
     $(window).resize();
     $(window).on("scroll", () => {
       let currentWidth = $(window).width();
-      if(config.isMobile || currentWidth < 480) {
-        nav.open(false);
-      }
 
       let winTop = $(window).scrollTop();
       let winHeight = $(window).height();
@@ -206,23 +197,17 @@ $(document).ready(function() {
         $("#nav").css('position', "fixed");
         $("#fixed-about").css('position', "fixed");
         $("#fixed-angry-orchard").css('position', "fixed");
-        if(!config.isMobile) {
-                    $("#nav li a").removeClass("white").addClass("blue");
+            $("#nav li a").removeClass("white").addClass("blue");
           $("#nav").addClass("white-bg");
-        }
+        
 
       }else{
         $("#nav").css('position', "absolute");
         $("#fixed-about").css('position', "absolute");
         $("#fixed-angry-orchard").css('position', "absolute");
-
-        if (!config.isMobile) {
-          $("#nav li a").removeClass("blue").addClass("white");
-          $("#nav").removeClass("white-bg");
-        }
-
-
-
+        $("#nav li a").removeClass("blue").addClass("white");
+         $("#nav").removeClass("white-bg");
+        
       }
 
 

@@ -27,7 +27,6 @@ export class Navigation {
         $(document).on("click", "a[href^='#']", function(e){
             let id = $(this).attr("href");
           
-            console.log("id ", + id);
               $("#nav li a").each(function(idx, li) {
                   $(li).removeClass("active");
               });
